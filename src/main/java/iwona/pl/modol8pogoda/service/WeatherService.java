@@ -3,7 +3,6 @@ package iwona.pl.modol8pogoda.service;
 import iwona.pl.modol8pogoda.model.WeatherDb;
 import iwona.pl.modol8pogoda.model.WeatherFirst;
 import iwona.pl.modol8pogoda.repository.WeatherDbRepo;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
