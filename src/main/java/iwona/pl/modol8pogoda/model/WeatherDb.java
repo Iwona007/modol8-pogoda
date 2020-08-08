@@ -2,7 +2,9 @@ package iwona.pl.modol8pogoda.model;
 
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import javax.persistence.*;
+import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
 @Table(name = "weathers_db")
@@ -18,7 +20,9 @@ public class WeatherDb {
     private Double tempMin;
     @Column(name = "temp_max")
     private Double tempMax;
-    private LocalDate date;
+
+//    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
+    private LocalDateTime dateTime;
     public WeatherDb() {
     }
 
@@ -26,13 +30,14 @@ public class WeatherDb {
         this.name = name;
     }
 
-    public WeatherDb( String name,Integer pressure, Double temp, Double tempMin, Double tempMax, LocalDate date) {
+    public WeatherDb(String name, Integer pressure, Double temp,
+                     Double tempMin, Double tempMax, LocalDateTime dateTime) {
         this.name = name;
         this.pressure = pressure;
         this.temp = temp;
         this.tempMin = tempMin;
         this.tempMax = tempMax;
-        this.date=date;
+        this.dateTime = dateTime;
     }
 
     public Long getId() {
@@ -83,13 +88,12 @@ public class WeatherDb {
         this.tempMax = tempMax;
     }
 
-
-    public LocalDate getDate() {
-        return date;
+    public LocalDateTime getDateTime() {
+        return dateTime;
     }
 
-    public void setDate(LocalDate date) {
-        this.date = date;
+    public void setDateTime(LocalDateTime dateTime) {
+        this.dateTime = dateTime;
     }
 
     @Override
@@ -101,7 +105,7 @@ public class WeatherDb {
                 ", temp=" + temp +
                 ", tempMin=" + tempMin +
                 ", tempMax=" + tempMax +
-                ", date=" + date +
+                ", dateTime=" + dateTime +
                 '}';
     }
 }

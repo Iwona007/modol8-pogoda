@@ -4,6 +4,7 @@ import iwona.pl.modol8pogoda.model.WeatherDb;
 import iwona.pl.modol8pogoda.model.WeatherFirst;
 import iwona.pl.modol8pogoda.repository.WeatherDbRepo;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -14,7 +15,7 @@ public class WeatherService {
 
     public static final String API_KEY = "e9b2575536ca76b89b2a192098466b5d";
     private String city = "Wroclaw";
-    private LocalDate date = LocalDate.now();
+    private LocalDateTime date = LocalDateTime.now();
     private WeatherDbRepo weatherDbRepo;
     private WeatherDb weatherDb;
 
