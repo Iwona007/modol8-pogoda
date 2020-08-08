@@ -12,7 +12,6 @@ public class WeatherDb {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
-    private Integer humidity;
     private Integer pressure;
     private Double temp;
     @Column(name = "temp_min")
@@ -20,11 +19,6 @@ public class WeatherDb {
     @Column(name = "temp_max")
     private Double tempMax;
     private LocalDate date;
-    private String icon;
-    private Double lon;
-    private Double lat;
-
-
     public WeatherDb() {
     }
 
@@ -32,25 +26,13 @@ public class WeatherDb {
         this.name = name;
     }
 
-    public WeatherDb(Double temp, Double tempMin, Double tempMax, LocalDate date) {
-        this.temp = temp;
-        this.tempMin = tempMin;
-        this.tempMax = tempMax;
-        this.date=date;
-    }
-
-    public WeatherDb( String name, Integer humidity, Integer pressure, Double temp,
-                     Double tempMin, Double tempMax, LocalDate date, String icon, Double lon, Double lat) {
+    public WeatherDb( String name,Integer pressure, Double temp, Double tempMin, Double tempMax, LocalDate date) {
         this.name = name;
-        this.humidity = humidity;
         this.pressure = pressure;
         this.temp = temp;
         this.tempMin = tempMin;
         this.tempMax = tempMax;
-        this.date = date;
-        this.icon = icon;
-        this.lon = lon;
-        this.lat = lat;
+        this.date=date;
     }
 
     public Long getId() {
@@ -67,14 +49,6 @@ public class WeatherDb {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public Integer getHumidity() {
-        return humidity;
-    }
-
-    public void setHumidity(Integer humidity) {
-        this.humidity = humidity;
     }
 
     public Integer getPressure() {
@@ -123,7 +97,6 @@ public class WeatherDb {
         return "WeatherDb{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
-                ", humidity=" + humidity +
                 ", pressure=" + pressure +
                 ", temp=" + temp +
                 ", tempMin=" + tempMin +
